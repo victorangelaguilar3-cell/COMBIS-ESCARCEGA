@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combis Escárcega - Reserva tu Viaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🚌 Combis Escárcega</div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Rutas</a>
+            <a href="#">Mi Viaje</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="busqueda">
+            <h2>🔎 Buscar Viaje</h2>
+            <div class="formulario-busqueda">
+                <div class="campo">
+                    <label for="origen">Origen</label>
+                    <input type="text" id="origen" value="Escárcega, Camp." disabled>
+                </div>
+                <div class="campo">
+                    <label for="destino">Destino</label>
+                    <select id="destino">
+                        <option value="Candelaria">Candelaria</option>
+                        <option value="Sabancuy">Sabancuy</option>
+                        <option value="Xpujil">Xpujil</option>
+                        <option value="Cd del Carmen">Ciudad del Carmen</option>
+                    </select>
+                </div>
+                <div class="campo">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" value="2025-12-09">
+                </div>
+                <div class="campo">
+                    <label for="pasajeros">Pasajeros</label>
+                    <input type="number" id="pasajeros" value="1" min="1" max="15">
+                </div>
+                <button onclick="mostrarResultados()">➡️ Buscar Combis</button>
+            </div>
+        </section>
+
+        <section id="resultados" style="display: none;">
+            <h2>✅ Resultados (Escárcega a <span id="ruta-destino"></span>)</h2>
+            <div id="tabla-resultados">
+                </div>
+        </section>
+
+        <section id="reserva-asientos" style="display: none;">
+            <h2>💺 Selección de Asientos</h2>
+            <div id="detalles-viaje"></div>
+            <div class="layout-combi">
+                <div class="asiento-ch">Conductor</div>
+                <div id="contenedor-asientos"></div>
+            </div>
+            <p>Seleccionado: <span id="asientos-seleccionados">0</span></p>
+            <button id="btn-finalizar" disabled onclick="mostrarCheckout()">Finalizar Selección ($70 MXN)</button>
+        </section>
+
+        <section id="checkout" style="display: none;">
+            <h2>📝 Confirmación y Pago</h2>
+            <p>Ruta: <strong id="chk-ruta"></strong></p>
+            <p>Salida: <strong id="chk-salida"></strong></p>
+            <p>Asientos: <strong id="chk-asientos"></strong></p>
+            <h3>Datos del Pasajero</h3>
+            <input type="text" placeholder="Nombre Completo">
+            <input type="tel" placeholder="Teléfono de Contacto">
+            <p class="nota-pago">⚠️ **IMPORTANTE:** El pago de **$70 MXN por asiento** se realiza **directamente al conductor** al abordar. Esta reserva solo asegura tu lugar.</p>
+            <button onclick="alert('¡Reserva Confirmada! Recibirás un código de confirmación por WhatsApp/SMS.')">Confirmar y Reservar</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Cooperativa Transporte Escárcega. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
